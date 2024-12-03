@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Initialize Keycloak
     const keycloak = new Keycloak({
-        url: 'http://localhost:8080',
-        realm: 'master',
+        url: 'https://keycloak-keycloak.apps.dalezcano.lab.upshift.rdu2.redhat.com',
+        realm: 'dev',
         clientId: 'js-client'
     });
 
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById('callApiBtn').addEventListener('click', function() {
             logToTextarea('Call API button clicked');
             if (keycloak.authenticated) {
-                fetch('https://4b215443be964e33bc1ef0373940400c.api.mockbin.io/', {
+                fetch('https://echo-api.3scale.net/', {
                     headers: {
                         'Authorization': 'Bearer ' + keycloak.token
                     }
