@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }).then(function(authenticated) {
         logToTextarea(authenticated ? 'User is authenticated' : 'User is not authenticated');
 
-        if(authenticated){
+        if(!authenticated){
             keycloak.login();
         }
 
