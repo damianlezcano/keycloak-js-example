@@ -19,10 +19,10 @@ document.addEventListener("DOMContentLoaded", function() {
     }).then(function(authenticated) {
         logToTextarea(authenticated ? 'User is authenticated' : 'User is not authenticated');
 
-        //document.getElementById('loginBtn').addEventListener('click', function() {
-        //    logToTextarea('Login button clicked');
-        //    keycloak.login();
-        //});
+        document.getElementById('loginBtn').addEventListener('click', function() {
+            logToTextarea('Login button clicked');
+            keycloak.login();
+        });
 
         document.getElementById('logoutBtn').addEventListener('click', function() {
             logToTextarea('Logout button clicked');
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     }).catch(function() {
-        console.log('Failed to initialize');
         keycloak.login();
+        console.log('Failed to initialize');
     });
 });
